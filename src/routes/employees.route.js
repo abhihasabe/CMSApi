@@ -8,6 +8,6 @@ const { employeeValidation } = require('../../validation/employee/employee.valid
 const checkAuth = require('../../helper/token/token_helper');
 
 // create new company
-router.post('/login', employeeValidation, companysController.login);
+router.post('/login', employeeValidation, companysController.createNewCompany);
 
 module.exports = router;
