@@ -21,25 +21,37 @@ var Companys = function(companys){
 
 
 // create new company
-Companys.createCompany = (companyReqData, result) =>{
-    dbConn.query('SELECT * FROM company_table WHERE company_email=?', companyReqData.company_email, (err, res)=>{
+Companys.createCompany = (employeeReqData, result) =>{
+    dbConn.query('SELECT * FROM employee_table WHERE employee_email=?',employeeReqData.employee_email, (err, res)=>{
         if(err){
-            console.log('Error while fetching companys by id', err);
-            result(null, err);
+            console.log('Error while fetching companys Type', err);
+            result(null,err);
         }else{
-            console.log('by id',res.length);
-            if(res.length==0){
-                dbConn.query('INSERT INTO company_table SET ? ', companyReqData, (err, res)=>{
+            if(res.length>0){
+                bcrypt.compare(employeeReqData.password, res[0].password,function(err, results) {
+                    // result == true
                     if(err){
-                        console.log('Error while inserting data');
-                        result(null, err);
-                }   else{
-                        console.log('company created successfully');
-                        result(null, res)
+                        console.log(" Comparision" ,err);
+                    }else{
+                        if(results==true){
+                            var token = jwt.sign(
+                                {
+                                    employee_name:res[0].employee_name,
+                                    email:res[0].employee_email
+                            }, 'secret', 
+                            {
+                                expiresIn:"1h"
+                            })
+                            result(null,res[0], token);
+                        }else{
+                            console.log('User Dose Not Exits');
+                            result(null,"User Dose Not Exits");
+                        }
                     }
                 });
             }else{
-                result(null, "Email Already Exists");
+                console.log('User Dose Not Exits');
+                result(null,"User Dose Not Exits");
             }
         }
     })
