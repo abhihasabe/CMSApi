@@ -94,7 +94,7 @@ Companys.getAllInventoryTypes = (result) =>{
 
 
 Companys.getCount = (result) =>{
-    dbConn.query('SELECT TABLE_NAME, SUM(TABLE_ROWS) FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = "mysma745_cms" GROUP BY TABLE_NAME', (err, res)=>{
+    dbConn.query('SELECT TABLE_NAME, DATACOUNT FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = "mysma745_cms" GROUP BY TABLE_NAME', (err, res)=>{
         if(err){
             console.log('Error while fetching companys Type', err);
             result(null,err);
