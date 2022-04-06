@@ -25,9 +25,9 @@ const router = express.Router();
 
 const companysController = require('../controllers/employee.controller');
 
-const { addUserValidation } = require('../../validation/employee/employee.validation');
+//const { addUserValidation } = require('../../validation/employee/employee.validation');
 
-const checkAuth = require('../../helper/token/token_helper');
+//const checkAuth = require('../../helper/token/token_helper');
 
 // create new company
 router.post('/addCompany', companysController.createNewEmployee);
