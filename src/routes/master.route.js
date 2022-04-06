@@ -30,6 +30,6 @@ router.get('/getAttendanceTypes', checkAuth, companysController.getAttendanceTyp
 router.get('/getInventoryTypes', checkAuth, companysController.getInventoryTypes);
 
 //get all data count
-router.get('/getCount', checkAuth, companysController.getCountData);
+//router.get('/getCount', checkAuth, companysController.getCountData);
 
 module.exports = router;
