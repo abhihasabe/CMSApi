@@ -34,29 +34,29 @@ var Employee = function(employee){
 
 
 // create new company
-Employee.createEmployee = (employeeReqData, result) =>{
-    dbConn.query('SELECT * FROM employee_table WHERE employee_email=?', employeeReqData.employee_email, (err, res)=>{
-        if(err){
-            console.log('Error while fetching employee by id', err);
-            result(null, err);
-        }else{
-            console.log('by id',res.length);
-            if(res.length==0){
-                dbConn.query('INSERT INTO employee_table SET ? ', employeeReqData, (err, res)=>{
-                    if(err){
-                        console.log('Error while inserting data');
-                        result(err, null);
-                }   else{
-                        console.log('employee created successfully');
-                        result(null, employeeReqData)
-                    }
-                });
-            }else{
-                result(null, "email is already been registered");
-            }
-        }
-    })
-}
+// Employee.createEmployee = (employeeReqData, result) =>{
+//     dbConn.query('SELECT * FROM employee_table WHERE employee_email=?', employeeReqData.employee_email, (err, res)=>{
+//         if(err){
+//             console.log('Error while fetching employee by id', err);
+//             result(null, err);
+//         }else{
+//             console.log('by id',res.length);
+//             if(res.length==0){
+//                 dbConn.query('INSERT INTO employee_table SET ? ', employeeReqData, (err, res)=>{
+//                     if(err){
+//                         console.log('Error while inserting data');
+//                         result(err, null);
+//                 }   else{
+//                         console.log('employee created successfully');
+//                         result(null, employeeReqData)
+//                     }
+//                 });
+//             }else{
+//                 result(null, "email is already been registered");
+//             }
+//         }
+//     })
+// }
 
 // Login
 Employee.login = (employeeReqData,result) =>{
@@ -96,19 +96,19 @@ Employee.login = (employeeReqData,result) =>{
 }
 
 
-Employee.refresh = (employeeReqData,result) =>{
-    var token = jwt.sign(
-        {
-            employee_name:employeeReqData.employee_name,
-            email:employeeReqData.employee_email
-    }, 'secret', 
-    {
-        expiresIn:"1h"
-    })
+// Employee.refresh = (employeeReqData,result) =>{
+//     var token = jwt.sign(
+//         {
+//             employee_name:employeeReqData.employee_name,
+//             email:employeeReqData.employee_email
+//     }, 'secret', 
+//     {
+//         expiresIn:"1h"
+//     })
     
-    if(token!=null)
-    result(null, token);
-}
+//     if(token!=null)
+//     result(null, token);
+// }
 
 
 module.exports = Employee;
