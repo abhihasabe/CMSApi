@@ -1,11 +1,11 @@
 var dbConn  = require('../../config/db.config');
 
-var bcrypt = require('bcrypt');
+//var bcrypt = require('bcrypt');
 var jwt = require('jsonwebtoken');
 
-const salt = bcrypt.genSaltSync(10);
+// const salt = bcrypt.genSaltSync(10);
 
-console.log(salt);
+// console.log(salt);
 
 var Employee = function(employee){
     this.employee_name                  =   employee.employee_name;
@@ -27,10 +27,10 @@ var Employee = function(employee){
     this.employee_wcpolicy              =   employee.employee_wcpolicy;
     this.employee_bank_acno             =   employee.employee_bank_acno;
     this.employee_company_id            =   employee.employee_company_id;
-    //this.password                       =   employee.password;
-    this.password                       =   employee.employee_name!=null?
-                                                bcrypt.hashSync(employee.password, salt):
-                                                employee.password;
+    this.password                       =   employee.password;
+    // this.password                       =   employee.employee_name!=null?
+    //                                             bcrypt.hashSync(employee.password, salt):
+    //                                             employee.password;
 }
 
 
