@@ -16,10 +16,10 @@ module.exports.createNewEmployee = (req, res) =>{
 }
 
 // get countrys
-module.exports.authentication = (req, res)=> {
+module.exports.auth = (req, res)=> {
     const employeeReqData = new EmployeeModel(req.body);
     //console.log('here all Company list');
-    EmployeeModel.login(employeeReqData, (err, result, token) =>{
+    EmployeeModel.authenticate(employeeReqData, (err, result, token) =>{
         if(err){
             res.status(500).json({success:0, message:err, data:result});
         }else if(result =="User Dose Not Exits"){
