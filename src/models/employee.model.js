@@ -34,81 +34,81 @@ var Employee = function(employee){
 
 
 // create new company
-// Employee.createEmployee = (employeeReqData, result) =>{
-//     dbConn.query('SELECT * FROM employee_table WHERE employee_email=?', employeeReqData.employee_email, (err, res)=>{
-//         if(err){
-//             console.log('Error while fetching employee by id', err);
-//             result(null, err);
-//         }else{
-//             console.log('by id',res.length);
-//             if(res.length==0){
-//                 dbConn.query('INSERT INTO employee_table SET ? ', employeeReqData, (err, res)=>{
-//                     if(err){
-//                         console.log('Error while inserting data');
-//                         result(err, null);
-//                 }   else{
-//                         console.log('employee created successfully');
-//                         result(null, employeeReqData)
-//                     }
-//                 });
-//             }else{
-//                 result(null, "email is already been registered");
-//             }
-//         }
-//     })
-// }
+Employee.createEmployee = (employeeReqData, result) =>{
+    dbConn.query('SELECT * FROM employee_table WHERE employee_email=?', employeeReqData.employee_email, (err, res)=>{
+        if(err){
+            console.log('Error while fetching employee by id', err);
+            result(null, err);
+        }else{
+            console.log('by id',res.length);
+            if(res.length==0){
+                dbConn.query('INSERT INTO employee_table SET ? ', employeeReqData, (err, res)=>{
+                    if(err){
+                        console.log('Error while inserting data');
+                        result(err, null);
+                }   else{
+                        console.log('employee created successfully');
+                        result(null, employeeReqData)
+                    }
+                });
+            }else{
+                result(null, "email is already been registered");
+            }
+        }
+    })
+}
 
 // Login
 Employee.login = (employeeReqData,result) =>{
-    // dbConn.query('SELECT * FROM employee_table WHERE employee_email=?',employeeReqData.employee_email, (err, res)=>{
-    //     if(err){
-    //         console.log('Error while fetching companys Type', err);
-    //         result(null,err);
-    //     }else{
-    //         if(res.length>0){
-    //             bcrypt.compare(employeeReqData.password, res[0].password,function(err, results) {
-    //                 // result == true
-    //                 if(err){
-    //                     console.log(" Comparision" ,err);
-    //                 }else{
-    //                     if(results==true){
-    //                         var token = jwt.sign(
-    //                             {
-    //                                 employee_name:res[0].employee_name,
-    //                                 email:res[0].employee_email
-    //                         }, 'secret', 
-    //                         {
-    //                             expiresIn:"1h"
-    //                         })
-    //                         result(null,res[0], token);
-    //                     }else{
-    //                         console.log('User Dose Not Exits');
-    //                         result(null,"User Dose Not Exits");
-    //                     }
-    //                 }
-    //             });
-    //         }else{
-    //             console.log('User Dose Not Exits');
-    //             result(null,"User Dose Not Exits");
-    //         }
-    //     }
-    // })
+    dbConn.query('SELECT * FROM employee_table WHERE employee_email=?',employeeReqData.employee_email, (err, res)=>{
+        if(err){
+            console.log('Error while fetching companys Type', err);
+            result(null,err);
+        }else{
+            if(res.length>0){
+                bcrypt.compare(employeeReqData.password, res[0].password,function(err, results) {
+                    // result == true
+                    if(err){
+                        console.log(" Comparision" ,err);
+                    }else{
+                        if(results==true){
+                            var token = jwt.sign(
+                                {
+                                    employee_name:res[0].employee_name,
+                                    email:res[0].employee_email
+                            }, 'secret', 
+                            {
+                                expiresIn:"1h"
+                            })
+                            result(null,res[0], token);
+                        }else{
+                            console.log('User Dose Not Exits');
+                            result(null,"User Dose Not Exits");
+                        }
+                    }
+                });
+            }else{
+                console.log('User Dose Not Exits');
+                result(null,"User Dose Not Exits");
+            }
+        }
+    })
 }
 
 
-// Employee.refresh = (employeeReqData,result) =>{
-//     var token = jwt.sign(
-//         {
-//             employee_name:employeeReqData.employee_name,
-//             email:employeeReqData.employee_email
-//     }, 'secret', 
-//     {
-//         expiresIn:"1h"
-//     })
+Employee.refresh = (employeeReqData,result) =>{
+    var token = jwt.sign(
+        {
+            employee_name:employeeReqData.employee_name,
+            email:employeeReqData.employee_email
+    }, 'secret', 
+    {
+        expiresIn:"1h"
+    })
     
-//     if(token!=null)
-//     result(null, token);
-// }
+    if(token!=null)
+    result(null, token);
+}
 
 
 module.exports = Employee;
