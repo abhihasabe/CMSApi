@@ -21,7 +21,7 @@ var Companys = function(companys){
 
 
 // create new company
-Companys.empLogin = (companyReqData, result) =>{
+Companys.createCompany = (companyReqData, result) =>{
     dbConn.query('SELECT * FROM company_table WHERE company_email=?', companyReqData.company_email, (err, res)=>{
         if(err){
             console.log('Error while fetching companys by id', err);
