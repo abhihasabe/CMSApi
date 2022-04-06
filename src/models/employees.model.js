@@ -1,9 +1,9 @@
 var dbConn  = require('../../config/db.config');
 
-// var bcrypt = require('bcryptjs');
+var bcrypt = require('bcryptjs');
 
-// var salt = bcrypt.genSaltSync(10);
-// console.log(salt);
+var salt = bcrypt.genSaltSync(10);
+console.log(salt);
 
 var Companys = function(companys){
     this.company_name       =   companys.company_name;
