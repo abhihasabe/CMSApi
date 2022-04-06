@@ -46,7 +46,7 @@ app.use('/api/v1/base', baseRoutes);
 app.use('/api/v1/company', companyRoutes);
 
 // create Employee routes
-app.use('/api/v1/employee', employeeRoutes);
+//app.use('/api/v1/employee', employeeRoutes);
 
 // listen to the port
 app.listen(port, ()=>{
