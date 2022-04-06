@@ -1,10 +1,10 @@
 const CompanyModel = require('../models/employees.model');
 
 // create new company
-exports.createNewCompany = (req, res) =>{
+exports.login = (req, res) =>{
     const companyReqData = new CompanyModel(req.body);
     console.log('companyReqData', companyReqData);
-    CompanyModel.createCompany(companyReqData, (err, company)=>{
+    CompanyModel.empLogin(companyReqData, (err, company)=>{
         if(err){
             res.json({success:0, message:err});
         }else if(company == "Email Already Exists") {
