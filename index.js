@@ -37,7 +37,7 @@ const baseRoutes = require('./src/routes/master.route');
 const companyRoutes = require('./src/routes/company.route');
 
 // import Employee routes
-const employeeRoutes = require('./src/routes/employee.route');
+//const employeeRoutes = require('./src/routes/employee.route');
 
 // create base routes
 app.use('/api/v1/base', baseRoutes);
