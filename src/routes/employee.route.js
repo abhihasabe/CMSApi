@@ -23,13 +23,13 @@
 const express = require('express');
 const router = express.Router();
 
-const companysController = require('../controllers/company.controller');
+const companysController = require('../controllers/employee.controller');
 
-const { addUserValidation } = require('../../validation/users/user.validation');
+const { addUserValidation } = require('../../validation/employee/employee.validation');
 
 const checkAuth = require('../../helper/token/token_helper');
 
 // create new company
-router.post('/addCompany', addUserValidation, checkAuth, companysController.createNewCompany);
+router.post('/addCompany', addUserValidation, checkAuth, companysController.createNewEmployee);
 
 module.exports = router;
