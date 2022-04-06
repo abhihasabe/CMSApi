@@ -11,9 +11,9 @@ const { addEmployeeValidation } = require('../../validation/employee/employee.va
 router.post('/addEmployee',checkAuth, addEmployeeValidation, employeeController.createNewEmployee);
 
 // Login
-router.post('/login',employeeController.authentication);
+//router.post('/login',employeeController.authentication);
 
 // Refresh Token
-router.post('/refreshToken',employeeController.refreshToken);
+//router.post('/refreshToken',employeeController.refreshToken);
 
 module.exports = router;
