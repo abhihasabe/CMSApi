@@ -30,6 +30,6 @@ const { addUserValidation } = require('../../validation/employee/employee.valida
 const checkAuth = require('../../helper/token/token_helper');
 
 // create new company
-router.post('/addCompany', addUserValidation, companysController.createNewEmployee);
+router.post('/addCompany', companysController.createNewEmployee);
 
 module.exports = router;
