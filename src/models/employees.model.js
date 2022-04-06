@@ -1,11 +1,11 @@
 var dbConn  = require('../../config/db.config');
 
 var bcrypt = require('bcrypt');
-var jwt = require('jsonwebtoken');
+// var jwt = require('jsonwebtoken');
 
-const salt = bcrypt.genSaltSync(10);
+// const salt = bcrypt.genSaltSync(10);
 
-console.log(salt);
+// console.log(salt);
 
 var Employee = function(employee){
     this.employee_name                  =   employee.employee_name;
