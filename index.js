@@ -31,7 +31,7 @@ app.get('/', (req, res)=>{
 });
 
 // import Base routes
-//const baseRoutes = require('./src/routes/master.route');
+const baseRoutes = require('./src/routes/master.route');
 
 // import Company routes
 //const companyRoutes = require('./src/routes/company.route');
@@ -40,7 +40,7 @@ app.get('/', (req, res)=>{
 //const employeeRoutes = require('./src/routes/employee.route');
 
 // create base routes
-//app.use('/api/v1/base', baseRoutes);
+app.use('/api/v1/base', baseRoutes);
 
 // create Company routes
 //app.use('/api/v1/company', companyRoutes);
