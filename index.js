@@ -31,22 +31,22 @@ app.get('/', (req, res)=>{
 });
 
 // import Base routes
-const baseRoutes = require('./src/routes/master.route');
+//const baseRoutes = require('./src/routes/master.route');
 
 // import Company routes
-const companyRoutes = require('./src/routes/company.route');
+//const companyRoutes = require('./src/routes/company.route');
 
 // import Employee routes
-const employeeRoutes = require('./src/routes/employee.route');
+//const employeeRoutes = require('./src/routes/employee.route');
 
 // create base routes
-app.use('/api/v1/base', baseRoutes);
+//app.use('/api/v1/base', baseRoutes);
 
 // create Company routes
-app.use('/api/v1/company', companyRoutes);
+//app.use('/api/v1/company', companyRoutes);
 
 // create Employee routes
-app.use('/api/v1/employee', employeeRoutes);
+//app.use('/api/v1/employee', employeeRoutes);
 
 // listen to the port
 app.listen(port, ()=>{
