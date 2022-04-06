@@ -27,9 +27,9 @@ var Employee = function(employee){
     this.employee_wcpolicy              =   employee.employee_wcpolicy;
     this.employee_bank_acno             =   employee.employee_bank_acno;
     this.employee_company_id            =   employee.employee_company_id;
-    this.password                       =   employee.employee_name!=null?
-                                                bcrypt.hashSync(employee.password, salt):
-                                                employee.password;
+    this.password                       =   employee.password;
+    // this.password                       =   employee.employee_name!=null?bcrypt.hashSync(employee.password, salt):
+    //                                             employee.password;
 }
 
 // create new company
