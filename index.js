@@ -11,7 +11,8 @@ app.use(cors({
   "origin": "*",
   "methods": "GET,HEAD,PUT,PATCH,POST,DELETE",
   "preflightContinue": false,
-  "optionsSuccessStatus": 200
+  "optionsSuccessStatus": 200,
+  "allowedHeaders":['Content-Type', 'Authorization', 'X-Requested-With', 'device-remember-token', 'Access-Control-Allow-Origin', 'Origin', 'Accept']
 }));
 
 // setup the server port
