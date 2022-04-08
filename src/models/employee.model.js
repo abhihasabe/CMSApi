@@ -72,6 +72,7 @@ Employee.authenticate = (employeeReqData,result) =>{
                     if(err){
                         console.log(" Comparision" ,err);
                     }else{
+                        console.log(results);
                         if(results==true){
                             var token = jwt.sign(
                                 {
@@ -83,8 +84,8 @@ Employee.authenticate = (employeeReqData,result) =>{
                             })
                             result(null,res[0], token);
                         }else{
-                            console.log('User Dose Not Exits');
-                            result(null,"User Dose Not Exits");
+                            console.log('Please enter valid password');
+                            result(null,"Please enter valid password");
                         }
                     }
                 });
