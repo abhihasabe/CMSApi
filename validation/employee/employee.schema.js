@@ -9,7 +9,7 @@ const schema = {
         employee_name:                  joi.string().max(100).required(),
         employee_dob:                   joi.date().raw().allow('',null),
         employee_gender:                joi.string().valid("Male", "Female", "Other").allow('',null),
-        employee_mobileno:              joi.number().integer().min(1000000000).message("Invalid mobile number").max(9999999999).message("Invalid mobile number").required(),
+        employee_mobileno:              joi.number().integer().min(1000000000).message("Invalid mobile number").max(9999999999).message("Invalid mobile number").allow('',null),
         employee_alternate_mobileno:    joi.number().integer().min(1000000000).message("Invalid mobile number").max(9999999999).message("Invalid mobile number").allow('',null),
         employee_email:                 joi.string().email().required(),
         employee_dept:                  joi.number().allow('',null),
