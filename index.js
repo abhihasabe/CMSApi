@@ -7,8 +7,7 @@ const bodyParser = require('body-parser');
 // create express app
 const app = express();
 
-app.use(cors({
-  "origin": "http://cmssecond.herokuapp.com"}));
+app.use(cors());
 
 // setup the server port
 const port = process.env.PORT || 3000;
