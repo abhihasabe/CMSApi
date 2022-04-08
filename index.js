@@ -8,7 +8,7 @@ const bodyParser = require('body-parser');
 const app = express();
 
 app.use(cors({
-  "origin": "*",
+  "origin": "http://cmssecond.herokuapp.com",
   "methods": "GET,HEAD,PUT,PATCH,POST,DELETE",
   "preflightContinue": false,
   "optionsSuccessStatus": 200,
