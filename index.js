@@ -8,12 +8,7 @@ const bodyParser = require('body-parser');
 const app = express();
 
 app.use(cors({
-  "origin": "http://cmssecond.herokuapp.com",
-  "methods": "GET,HEAD,PUT,PATCH,POST,DELETE",
-  "preflightContinue": false,
-  "optionsSuccessStatus": 200,
-  "allowedHeaders":['Content-Type', 'Authorization', 'X-Requested-With', 'device-remember-token', 'Access-Control-Allow-Origin', 'Origin', 'Accept']
-}));
+  "origin": "http://cmssecond.herokuapp.com"}));
 
 // setup the server port
 const port = process.env.PORT || 3000;
