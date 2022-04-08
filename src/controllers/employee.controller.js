@@ -24,7 +24,10 @@ module.exports.auth = (req, res)=> {
             res.status(500).json({success:0, message:err, data:result});
         }else if(result =="User Dose Not Exits"){
             res.json({success:0, message:"User Dose Not Exist"});
-        }else{
+        }else if(result =="Please enter valid password"){
+            res.json({success:0, message:"Please enter valid password"});
+        }
+        else{
             res.json({success:1, message:"Data Fetch Successfully",token:token, data :result});
         }
     })
