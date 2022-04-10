@@ -14,6 +14,7 @@ var Employee = function(employee){
     this.employee_mobileno              =   employee.employee_mobileno;
     this.employee_alternate_mobileno    =   employee.employee_alternate_mobileno;
     this.employee_email                 =   employee.employee_email;
+    this.employee_type                  =   employee.employee_type;
     this.employee_dept                  =   employee.employee_dept;
     this.employee_dateofjoining         =   employee.employee_dateofjoining;
     this.employee_working_location      =   employee.employee_working_location;

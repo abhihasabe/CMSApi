@@ -44,7 +44,7 @@ Companys.getCityByCountry = (cid, result) =>{
 
 // get all companys Types
 Companys.getAllCompanysTypes = (result) =>{
-    dbConn.query('SELECT * FROM company_types_table', (err, res)=>{
+    dbConn.query('SELECT * FROM company_departments_types_table', (err, res)=>{
         if(err){
             console.log('Error while fetching companys Type', err);
             result(null,err);

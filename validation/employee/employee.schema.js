@@ -12,6 +12,7 @@ const schema = {
         employee_mobileno:              joi.number().integer().min(1000000000).message("Invalid mobile number").max(9999999999).message("Invalid mobile number").allow('',null),
         employee_alternate_mobileno:    joi.number().integer().min(1000000000).message("Invalid mobile number").max(9999999999).message("Invalid mobile number").allow('',null),
         employee_email:                 joi.string().email().required(),
+        employee_type:                  joi.number().allow('',null),
         employee_dept:                  joi.number().allow('',null),
         employee_dateofjoining:         joi.date().raw().allow('',null),
         employee_working_location:      joi.number().allow('',null),
