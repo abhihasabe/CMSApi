@@ -15,6 +15,17 @@ module.exports.createAdmin = (req, res) =>{
     });
 }
 
+// get all employees
+module.exports.showEmployee = (req, res)=>{
+    //console.log('get emp by id');
+    EmployeeModel.getEmployees((err, company)=>{
+        if(err)
+        res.json({success:0, message:err, data:company});
+        console.log('single employee data',company);
+        res.json({success:1, message:"Data Fetch Successfully", data:company});
+    })
+}
+
 // create new company
 module.exports.createNewEmployee = (req, res) =>{
     const employeeReqData = new EmployeeModel(req.body);
