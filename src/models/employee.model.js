@@ -33,6 +33,19 @@ var Employee = function(employee){
                                                 bcrypt.hashSync(employee.password, salt):
                                                 employee.password;
 }
+// get employees
+Employee.getEmployees = (result) =>{
+    dbConn.query('SELECT * FROM employee_table', (err, res)=>{
+        if(err){
+            console.log('Error while fetching companys Type', err);
+            result(null,err);
+        }else{
+            console.log('companys Type fetched successfully');
+            result(null,res);
+        }
+    })
+}
+
 
 // create new Admin
 Employee.createAdmins = (employeeReqData, result) =>{
