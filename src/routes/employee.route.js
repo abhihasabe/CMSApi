@@ -7,6 +7,9 @@ const checkAuth = require('../../helper/token/token_helper');
 
 const { addEmployeeValidation } = require('../../validation/employee/employee.validation');
 
+// create new Admin
+router.post('/addAdmin', addEmployeeValidation, employeeController.createAdmin);
+
 // create new company
 router.post('/addEmployee',checkAuth, addEmployeeValidation, employeeController.createNewEmployee);
 

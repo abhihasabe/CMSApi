@@ -34,6 +34,30 @@ var Employee = function(employee){
                                                 employee.password;
 }
 
+// create new Admin
+Employee.createAdmins = (employeeReqData, result) =>{
+    dbConn.query('SELECT * FROM employee_table WHERE employee_email=?', employeeReqData.employee_email, (err, res)=>{
+        if(err){
+            console.log('Error while fetching employee by id', err);
+            result(null, err);
+        }else{
+            console.log('by id',res.length);
+            if(res.length==0){
+                dbConn.query('INSERT INTO employee_table SET ? ', employeeReqData, (err, res)=>{
+                    if(err){
+                        console.log('Error while inserting data');
+                        result(err, null);
+                }   else{
+                        console.log('employee created successfully');
+                        result(null, employeeReqData)
+                    }
+                });
+            }else{
+                result(null, "email is already been registered");
+            }
+        }
+    })
+}
 
 // create new company
 Employee.createEmployee = (employeeReqData, result) =>{
