@@ -1,7 +1,7 @@
 const CompanyModel = require('../models/company.model');
 
 // create new company
-exports.createNewCompany = (req, res) =>{
+module.exports.createNewCompany = (req, res) =>{
     const companyReqData = new CompanyModel(req.body);
     console.log('companyReqData', companyReqData);
     CompanyModel.createCompany(companyReqData, (err, company)=>{
@@ -13,4 +13,16 @@ exports.createNewCompany = (req, res) =>{
             res.json({success:1,  message:"Data Added Successfully"});
         }
     });
+}
+
+
+// get all employees
+module.exports.showCompany = (req, res)=>{
+    //console.log('get emp by id');
+    CompanyModel.getCompany((err, company)=>{
+        if(err)
+        res.json({success:0, message:err, data:company});
+        console.log('single employee data',company);
+        res.json({success:1, message:"Data Fetch Successfully", data:company});
+    })
 }

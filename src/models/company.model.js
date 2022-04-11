@@ -45,4 +45,18 @@ Companys.createCompany = (companyReqData, result) =>{
     })
 }
 
+// get company
+Companys.getCompany = (result) =>{
+    dbConn.query('SELECT * FROM company_table', (err, res)=>{
+        if(err){
+            console.log('Error while fetching companys Type', err);
+            result(null,err);
+        }else{
+            console.log('companys Type fetched successfully');
+            result(null,res);
+        }
+    })
+}
+
+
 module.exports = Companys;

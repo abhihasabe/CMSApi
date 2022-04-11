@@ -10,4 +10,7 @@ const checkAuth = require('../../helper/token/token_helper');
 // create new company
 router.post('/addCompany', addUserValidation, checkAuth, companysController.createNewCompany);
 
+// show company
+router.get('/showCompany',checkAuth, companysController.showCompany);
+
 module.exports = router;
