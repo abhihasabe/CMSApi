@@ -35,7 +35,7 @@ var Employee = function(employee){
 }
 // get employees
 Employee.getEmployees = (result) =>{
-    dbConn.query('SELECT * FROM employee_table', (err, res)=>{
+    dbConn.query('SELECT et.employee_name, et.employee_dob, et.employee_gender, et.employee_mobileno, et.employee_alternate_mobileno, et.employee_email, utt.users_type_name, ctt.company_types_name, et.employee_dateofjoining, et.employee_working_location, et.employee_end_date, et.employee_blood_group, et.employee_address, et.employee_aadharno, et.employee_panno, et.employee_pfno, et.employee_esicno, et.employee_wcpolicy, et.employee_bank_acno, ct.city_name, cmt.company_name FROM employee_table et, company_departments_types_table ctt, city_table ct, company_table cmt, users_types_table utt WHERE et.employee_dept=ctt.cid and et.employee_working_location=ct.cid and et.employee_company_id = ct.cid and et.employee_type=utt.utID', (err, res)=>{
         if(err){
             console.log('Error while fetching companys Type', err);
             result(null,err);
