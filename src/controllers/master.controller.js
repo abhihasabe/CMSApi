@@ -75,3 +75,13 @@ module.exports.getCountData = (req, res)=>{
         res.json({success:1, message:"Data Fetch Successfully", data:company});
     })
 }
+
+module.exports.getEmployeeTypes = (req, res)=>{
+    CompanyModel.getEmpoyees((err, company) =>{
+        console.log('We are here');
+        if(err)
+        res.json({success:0, message:err, data:company});
+        console.log('single employee data',company);
+        res.json({success:1, message:"Data Fetch Successfully", data:company});
+    })
+}

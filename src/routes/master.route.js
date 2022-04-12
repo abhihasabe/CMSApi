@@ -32,4 +32,7 @@ router.get('/getInventoryTypes', checkAuth, companysController.getInventoryTypes
 //get all data count
 router.get('/getCount', checkAuth, companysController.getCountData);
 
+//get emplyee Type
+router.get('/getEmployeeTypes', checkAuth, companysController.getEmployeeTypes);
+
 module.exports = router;

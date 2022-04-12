@@ -105,4 +105,16 @@ Companys.getCount = (result) =>{
     })
 }
 
+Companys.getEmpoyees = (result) =>{
+    dbConn.query('SELECT * FROM users_types_table', (err, res)=>{
+        if(err){
+            console.log('Error while fetching companys Type', err);
+            result(null,err);
+        }else{
+            console.log('companys Type fetched successfully');
+            result(null,res);
+        }
+    })
+}
+
 module.exports = Companys;
