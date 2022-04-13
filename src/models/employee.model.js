@@ -35,7 +35,9 @@ var Employee = function(employee){
 }
 // get employees
 Employee.getEmployees = (result) =>{
-    dbConn.query('SELECT et.employee_name, et.employee_dob, et.employee_gender, et.employee_mobileno, et.employee_alternate_mobileno, et.employee_email, utt.users_type_name, ctt.company_types_name, et.employee_dateofjoining, et.employee_end_date, et.employee_blood_group, et.employee_address, et.employee_aadharno, et.employee_panno, et.employee_pfno, et.employee_esicno, et.employee_wcpolicy, et.employee_bank_acno, ct.city_name, cmt.company_name FROM employee_table et, company_departments_types_table ctt, city_table ct, company_table cmt, users_types_table utt WHERE et.employee_dept=ctt.cid and et.employee_working_location=ct.cid and et.employee_company_id = ct.cid and et.employee_type=utt.utID', (err, res)=>{
+    dbConn.query(
+        'SELECT employee_table.employee_name, employee_table.employee_dob,employee_table.employee_gender,employee_table.employee_mobileno,employee_table.employee_alternate_mobileno,employee_table.employee_email, users_types_table.users_type_name,company_departments_types_table.company_types_name,employee_table.employee_dateofjoining,city_table.city_name,employee_table.employee_end_date,employee_table.employee_blood_group,employee_table.employee_address,employee_table.employee_aadharno,employee_table.employee_panno,employee_table.employee_pfno,employee_table.employee_esicno,employee_table.employee_wcpolicy,employee_table.employee_bank_acno,company_table.company_name,employee_table.password FROM users_types_table INNER JOIN employee_table ON users_types_table.utID = employee_table.employee_type INNER JOIN company_departments_types_table ON company_departments_types_table.cid = employee_table.employee_dept INNER JOIN city_table ON city_table.cid = employee_table.employee_working_location INNER JOIN company_table ON company_table.cid = employee_table.employee_company_id',
+         (err, res)=>{
         if(err){
             console.log('Error while fetching companys Type', err);
             result(null,err);

@@ -47,7 +47,7 @@ Companys.createCompany = (companyReqData, result) =>{
 
 // get company
 Companys.getCompany = (result) =>{
-    dbConn.query('SELECT et.company_name, ctt.company_types_name, et.company_email, et.company_phone, et.company_fax, et.company_address, cmt.country_name, ct.city_name, et.company_address, et.company_pincode, et.company_website, et.company_info FROM company_table et, company_departments_types_table ctt, city_table ct, country_table cmt WHERE et.company_type=ctt.cid and et.company_country=cmt.cid and et.company_branch = ct.cid', (err, res)=>{
+    dbConn.query('SELECT company_table.company_name, company_departments_types_table.company_types_name, company_table.company_email, company_table.company_phone, company_table.company_fax, company_table.company_address, company_table.company_pincode, country_table.country_name, city_table.city_name, company_table.company_website, company_table.company_info FROM country_table INNER JOIN company_table ON country_table.cid = company_table.company_country INNER JOIN city_table ON city_table.cid = company_table.company_branch INNER JOIN company_departments_types_table ON company_departments_types_table.cid= company_table.company_type', (err, res)=>{
         if(err){
             console.log('Error while fetching companys Type', err);
             result(null,err);
