@@ -31,7 +31,11 @@ Companys.getAllCountrys = (result) =>{
 
 // get all companys City
 Companys.getCityByCountry = (cid, result) =>{
-    dbConn.query('SELECT * FROM city_table WHERE country_id=? ', cid, (err, res)=>{
+    const mac = cid; 
+    console.log(mac);
+    const macArr = mac.split(',');
+    console.log(macArr);
+    dbConn.query('SELECT * FROM city_table WHERE country_id IN (?)', cid, (err, res)=>{
         if(err){
             console.log('Error while fetching City', err);
             result(null,err);
