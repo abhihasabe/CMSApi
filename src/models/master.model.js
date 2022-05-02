@@ -34,8 +34,10 @@ Companys.getCityByCountry = (cid, result) =>{
     const mac = cid; 
     console.log(mac);
     const macArr = mac.split(',');
+    var sql =  mysql.format("SELECT * FROM city_table WHERE country_id IN (?)", macArr);
     console.log(macArr);
-    dbConn.query('SELECT * FROM city_table WHERE country_id IN (?)', cid, (err, res)=>{
+    console.log(sql);
+    dbConn.query(sql, (err, res)=>{
         if(err){
             console.log('Error while fetching City', err);
             result(null,err);
