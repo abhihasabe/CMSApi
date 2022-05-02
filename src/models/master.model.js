@@ -31,13 +31,11 @@ Companys.getAllCountrys = (result) =>{
 
 // get all companys City
 Companys.getCityByCountry = (cid, result) =>{
-    const mac = cid; 
+    console.log(cid);
+    const mac = cid.split(','); 
     console.log(mac);
-    const macArr = mac.split(',');
-    var sql =  mysql.format("SELECT * FROM city_table WHERE country_id IN (?)", macArr);
-    console.log(macArr);
-    console.log(sql);
-    dbConn.query(sql, (err, res)=>{
+    let sql = 'SELECT * FROM city_table WHERE country_id in (?)';
+    dbConn.query(sql, [mac], (err, res)=>{
         if(err){
             console.log('Error while fetching City', err);
             result(null,err);

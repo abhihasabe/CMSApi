@@ -14,7 +14,7 @@ module.exports.getCountrys = (req, res)=> {
 
 // get city by Country ID
 module.exports.getCityByCountryID = (req, res)=>{
-    //console.log('get emp by id');
+    console.log('get emp by id', req.params.id);
     CompanyModel.getCityByCountry(req.params.id, (err, company)=>{
         if(err)
         res.json({success:0, message:err, data:company});
