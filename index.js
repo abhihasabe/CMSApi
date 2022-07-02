@@ -33,6 +33,9 @@ const companyRoutes = require('./src/routes/company.route');
 // import Employee routes
 const employeeRoutes = require('./src/routes/employee.route');
 
+// import Salary routes
+const salaryRoutes = require('./src/routes/salary.route');
+
 // create base routes
 app.use('/api/v1/base', baseRoutes);
 
@@ -41,6 +44,9 @@ app.use('/api/v1/company', companyRoutes);
 
 // create Employee routes
 app.use('/api/v1/employee', employeeRoutes);
+
+// create Salary routes
+app.use('/api/v1/salary', salaryRoutes);
 
 // listen to the port
 app.listen(port, ()=>{
